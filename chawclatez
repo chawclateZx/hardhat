@@ -1,0 +1,21 @@
+import { HardhatUserConfig } from "hardhat/config";
+import "@nomicfoundation/hardhat-toolbox";
+import * as tenderly from "@tenderly/hardhat-tenderly";
+
+tenderly.setup({ automaticVerifications: true });
+
+const config: HardhatUserConfig = {
+  solidity: "0.8.19",
+  networks: {
+    virtualMainnet: {
+      url: "https://virtual.mainnet.rpc.tenderly.co/68ec59ec-2f1d-4ed2-8cee-61c454f315e9",
+    },
+  },
+  tenderly: {
+    // https://docs.tenderly.co/account/projects/account-project-slug
+    project: "projectfu",
+    username: "chawclatez",
+  },
+};
+
+export default config;
